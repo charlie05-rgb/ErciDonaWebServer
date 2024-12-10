@@ -1,0 +1,24 @@
+<!DOCTYPE html> <!-- Declara el tipo de documento HTML5 -->
+<html lang="es"> <!-- Define el idioma de la página como español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <title>Autenticar Usuario</title> <!-- Título que aparecerá en la pestaña del navegador -->
+</head>
+<body>
+<!-- Formulario que enviará los datos al servidor usando el método POST -->
+<label >El registro se ha realizado con éxito</label>
+<label>Revisa tu correo electrónico e introduce el código </label>
+
+<form action="/autentication_user" method="POST">
+     <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre_user" required> <!-- Campo de texto, requerido -->
+    <br>
+    <label for="codigo">Codigo</label>
+    <input type="text" id="codigo" name="codigo_user" required> <!-- Campo de texto, requerido -->
+    <br>
+    <!-- Botón para enviar el formulario -->
+    <button type="submit">Aceptar</button>
+</form>
+
+</body>
+</html>
