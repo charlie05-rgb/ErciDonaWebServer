@@ -1,4 +1,5 @@
 import sqlite3
+import ssl
 
 from dotenv import load_dotenv
 import os
@@ -227,5 +228,7 @@ def form_autentication():
 if __name__ == '__main__':
     conexion , tunel = get_db_connection()
     #app.run(app.run(ssl_context=('cert.pem', 'key.pem'), host='0.0.0.0', port=5000, debug=True))
-    app.run(app.run(host='0.0.0.0', port=5000, debug=True))
-
+    # app.run(app.run(host='0.0.0.0', port=5000, debug=True))
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    context.load_cert_chain('/root/home/certs/cerciapps_sytes_net.pem', '/root/home/certs/erciapps.key')
+    app.run(ssl_context=context, host='0.0.0.0', port=5001, debug=True)
