@@ -10,7 +10,6 @@ from flask import Flask, render_template, request, make_response, redirect, json
 from ddbb import get_db_connection
 
 
-
 app = Flask(__name__)
 conexion =None
 tunel = None
@@ -44,32 +43,6 @@ def verify_token(token, userlogin):
 @app.route('/')
 def home():
  return render_template('login_template.html')
-
-@app.route('/read_qr')
-def read_qr():
-    return render_template('read_qr.html')
-
-
-@app.route('/qr_ok')
-def qr_ok():
-    return render_template('qr_ok.html')
-
-@app.route('/qr_fail')
-def qr_fail():
-    return render_template('qr_fail.html')
-
-
-@app.route('/qr-data', methods=['POST'])
-def qr_data():
-    if request.is_json:
-        qr_content = request.json.get('qr_data')
-        print("Contenido del QR:", qr_content)
-
-        # Responder con JSON indicando éxito y redirigir en el cliente
-        return jsonify({"message": "QR recibido", "content": "qr_fail"})
-
-    else:
-        return jsonify({"error": "No se recibió JSON válido"}), 400
 
 
 @app.route('/sign_in', methods=['POST'])
@@ -125,7 +98,7 @@ def login_ok():
     # Verificar si el token o el nombre de usuario están ausentes
     if not token or not userlogin:
         # Si faltan el token o el nombre de usuario, renderizar una plantilla de error de token
-        return render_template('token_fail.html')
+        return render_template('token_infail.html')
 
     # Verificar la validez del token
     decoded_token = verify_token(token, userlogin)
@@ -185,12 +158,16 @@ def register_user():
 
 @app.route('/autenticar_usuario_fail')
 def form_autenticar_fail():
-    return (render_template('autentication_fail.html'))
+    return (render_template('register_fail.html'))
 
 
 @app.route('/autenticar_usuario')
 def form_autenticar():
-    return (render_template('autentication.html'))
+    return ((render_template('autentication.html'))
+
+@app.route('/autenticar_codigo'))
+def form_autenticar():
+    return (render_template('verify_ticket'))
 
 
 
@@ -203,6 +180,7 @@ def form_autentication():
         cursor = conexion.cursor()
         cursor.callproc('verificar_usuario', (nombre, codigo))
         result = cursor.fetchone()
+        print(result)
         conexion.commit()
 
         if result and result[0]:
@@ -222,6 +200,9 @@ def form_autentication():
 
 
 
+@app.route('/read_qr')
+def read_qr():
+    return render_template('read_qr.html')
 
 
 #Donde empieza la aplicación

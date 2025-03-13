@@ -1,38 +1,132 @@
-<!DOCTYPE html> <!-- Declara el tipo de documento HTML5 -->
-<html lang="es"> <!-- Define el idioma de la página como español -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
-    <title>Login</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #8e9eab, #eef2f3);
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Contenedor del formulario */
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            text-align: center;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Etiquetas y campos de entrada */
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #8e9eab;
+            box-shadow: 0 0 8px rgba(142, 158, 171, 0.6);
+        }
+
+        /* Botón de envío */
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #8e9eab, #6d7a8b);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(142, 158, 171, 0.5);
+        }
+
+        /* Responsividad */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- Formulario que enviará los datos al servidor usando el método POST -->
-<form action="/register_user" method="POST">
-    <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" name="nombreusu" required> <!-- Campo de texto, requerido -->
-    <br>
-    <!-- Campo para ingresar el correo o nombre de usuario -->
-    <!-- Salto de línea -->
+    <!-- Contenedor del formulario -->
+    <div class="form-container">
+        <h1>Registro de Usuario</h1>
+        <!-- Formulario de registro -->
+        <form action="/register_user" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombreusu" placeholder="Ingresa tu nombre" required>
 
-    <!-- Campo para ingresar la contraseña -->
-    <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo" required> <!-- Campo de contraseña, requerido -->
-    <br>
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo electrónico" required>
 
-    <label for="password">Contrasena:</label>
-    <input type="password" id="password" name="contrasenausu" required> <!-- Campo de contraseña, requerido -->
-    <br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="contrasenausu" placeholder="Ingresa tu contraseña" required>
 
-    <label for="telefono">Telefono</label>
-    <input type="tel" id="telefono" name="numerotelefono" required> <!-- Campo de contraseña, requerido -->
-    <br><!-- Salto de línea -->
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="numerotelefono" placeholder="Ingresa tu número de teléfono" required>
 
-    <label for="direccion">Direccion</label>
-    <input type="text" id="direccion" name="direccionusu" required> <!-- Campo de contraseña, requerido -->
-    <br>
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccionusu" placeholder="Ingresa tu dirección" required>
 
-    <!-- Botón para enviar el formulario -->
-    <button type="submit">Aceptar</button>
-</form>
-
+            <button type="submit">Aceptar</button>
+        </form>
+    </div>
 </body>
 </html>

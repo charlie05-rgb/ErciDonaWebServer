@@ -2,10 +2,76 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="refresh" content="3; url=/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login OK</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 2.2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Indicador de recarga */
+        .loader {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mensaje de redirección */
+        .redirect {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>¡Inicio de sesión exitoso!</h1>
-    <p>Has iniciado sesión correctamente.</p>
+    <div class="container">
+        <h1>¡Inicio de sesión exitoso!</h1>
+        <p>Has iniciado sesión correctamente.</p>
+        <!-- Loader animado -->
+        <div class="loader"></div>
+        <p class="redirect">Redirigiendo en 3 segundos...</p>
+    </div>
 </body>
 </html>

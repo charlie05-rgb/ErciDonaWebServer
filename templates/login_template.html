@@ -1,28 +1,121 @@
-<!DOCTYPE html> <!-- Declara el tipo de documento HTML5 -->
-<html lang="es"> <!-- Define el idioma de la página como español -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
-    <title>Login</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2193b0;
+            box-shadow: 0 0 8px rgba(33, 147, 176, 0.6);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #2193b0, #176979);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(33, 147, 176, 0.5);
+        }
+
+        .register-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2193b0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .register-link:hover {
+            color: #176979;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<!-- Formulario que enviará los datos al servidor usando el método POST -->
-<form action="/sign_in" method="POST">
+    <div class="form-container">
+        <h1>Iniciar Sesión</h1>
+        <form action="/sign_in" method="POST">
+            <label for="email">Correo / Usuario:</label>
+            <input type="text" id="email" name="correo" placeholder="Ingresa tu correo o usuario" required>
 
-    <!-- Campo para ingresar el correo o nombre de usuario -->
-    <label for="email">Correo / Usuario:</label>
-    <input type="text" id="email" name="correo" required> <!-- Campo de texto, requerido -->
-    <br> <!-- Salto de línea -->
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="passwd" placeholder="Ingresa tu contraseña" required>
 
-    <!-- Campo para ingresar la contraseña -->
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="passwd" required> <!-- Campo de contraseña, requerido -->
-    <br> <!-- Salto de línea -->
-
-    <!-- Botón para enviar el formulario -->
-    <button type="submit">Aceptar</button>
-</form>
-    <a href="/registro_usuario">
-        <button type="button">Registrar</button>
-    </a>
+            <button type="submit">Aceptar</button>
+        </form>
+        <a href="/registro_usuario" class="register-link">¿No tienes cuenta? Regístrate aquí</a>
+    </div>
 </body>
 </html>

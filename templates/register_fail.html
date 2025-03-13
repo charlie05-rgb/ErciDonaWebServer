@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="3; url=/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticación Fallida</title>
+    <title>Error al registrar</title>
     <style>
         /* Estilos generales */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #ffe6e6;
+            background-color: #ffdddd;
             color: #333;
             display: flex;
             justify-content: center;
@@ -25,20 +25,22 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
+            max-width: 500px;
             width: 90%;
             animation: shake 0.5s;
         }
 
         /* Animación de sacudida para resaltar el error */
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25%, 75% { transform: translateX(-5px); }
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
             50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #d9534f; /* Rojo */
             margin-bottom: 10px;
         }
@@ -46,6 +48,18 @@
         p {
             font-size: 1.1rem;
             margin: 10px 0;
+        }
+
+        a {
+            color: #d9534f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #c9302c;
+            text-decoration: underline;
         }
 
         .icon {
@@ -63,10 +77,12 @@
 </head>
 <body>
     <div class="container">
+        <!-- Icono de error -->
         <div class="icon">❌</div>
-        <h1>¡Autenticación fallida!</h1>
-        <p>Las credenciales ingresadas no son correctas.</p>
-        <p>Serás redirigido en breve...</p>
+        <h1>¡Error en el inicio de sesión!</h1>
+        <p>Las credenciales ingresadas son incorrectas.</p>
+        <p>Serás redirigido al formulario de inicio de sesión en breve.</p>
+        <p>Si no eres redirigido automáticamente, haz clic <a href="/">aquí</a>.</p>
         <p class="redirect">Redirigiendo en 3 segundos...</p>
     </div>
 </body>

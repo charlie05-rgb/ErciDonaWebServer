@@ -2,12 +2,88 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3; url=/register_user" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error en el inicio de sesión</title>
-    <meta http-equiv="refresh" content="3; url=/form_login"> <!-- Redirige después de 3 segundos -->
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffdddd;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            animation: shake 0.5s;
+        }
+
+        /* Animación de sacudida para resaltar el error */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #d9534f; /* Rojo */
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        a {
+            color: #d9534f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #c9302c;
+            text-decoration: underline;
+        }
+
+        .icon {
+            font-size: 4rem;
+            color: #d9534f;
+            margin-bottom: 10px;
+        }
+
+        .redirect {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-    <h1>¡Error en el inicio de sesión!</h1>
-    <p>Las credenciales ingresadas son incorrectas. Serás redirigido al formulario de inicio de sesión en breve.</p>
-    <p>Si no eres redirigido automáticamente, haz clic <a href="/form_login">aquí</a>.</p>
+    <div class="container">
+        <!-- Icono de error -->
+        <div class="icon">❌</div>
+        <h1>¡Error en el registro!</h1>
+        <p>Las credenciales ingresadas son incorrectas.</p>
+        <p>Serás redirigido al formulario de inicio de sesión en breve.</p>
+        <p>Si no eres redirigido automáticamente, haz clic <a href="/">aquí</a>.</p>
+        <p class="redirect">Redirigiendo en 3 segundos...</p>
+    </div>
 </body>
 </html>
